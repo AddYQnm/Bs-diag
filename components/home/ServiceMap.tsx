@@ -75,7 +75,7 @@ export function ServiceMap() {
         maxZoom={13}
         scrollWheelZoom={false}
         zoomControl={false}
-        keyboard={true}
+        keyboard
         aria-label="Carte interactive de la Normandie, zone d'intervention BS Diag"
         className="h-full w-full"
       >
@@ -86,7 +86,6 @@ export function ServiceMap() {
 
         <ZoomControl position="bottomright" />
 
-        {/* Zone principale autour de Rouen */}
         <CircleMarker
           center={[49.4432, 1.0993]}
           radius={45}
@@ -126,7 +125,6 @@ export function ServiceMap() {
         ))}
       </MapContainer>
 
-      {/* Badge 76 / 27 */}
       <div className="pointer-events-none absolute left-5 top-5 z-[400] flex gap-2">
         <span className="rounded-full bg-[#222] px-3 py-1.5 text-[10px] font-semibold text-white shadow-sm">
           76
@@ -137,7 +135,6 @@ export function ServiceMap() {
         </span>
       </div>
 
-      {/* Indication */}
       <div className="pointer-events-none absolute bottom-4 left-4 z-[400] rounded-full border border-white/60 bg-white/90 px-3 py-2 text-[10px] font-medium text-neutral-600 shadow-sm backdrop-blur-md">
         Déplacez la carte pour explorer
       </div>

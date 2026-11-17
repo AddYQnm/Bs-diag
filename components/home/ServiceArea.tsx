@@ -1,13 +1,24 @@
+"use client";
+
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { ServiceMap } from "./ServiceMap";
+
+const ServiceMap = dynamic(
+  () => import("./ServiceMap").then((mod) => mod.ServiceMap),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-[300px] w-full animate-pulse rounded-[20px] bg-neutral-200 sm:h-[340px] lg:h-full lg:min-h-[380px]" />
+    ),
+  }
+);
 
 export function ServiceArea() {
   return (
     <section className="px-6 py-20 sm:py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-[1440px]">
-
         <div className="relative overflow-hidden rounded-[28px] bg-[#f5f5f3]">
 
           {/* CONTENU */}
@@ -38,8 +49,7 @@ export function ServiceArea() {
             >
               Voir notre zone
 
-              <span className="flex h-5 w-5 items-center justify-center rounded-full border border-black/10 transition-transform duration-300 group-hover:translate-x-1 group-hover:border-white/20"
-              >
+              <span className="flex h-5 w-5 items-center justify-center rounded-full border border-black/10 transition-transform duration-300 group-hover:translate-x-1 group-hover:border-white/20">
                 <ArrowRight size={11} />
               </span>
             </Link>
